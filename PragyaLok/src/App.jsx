@@ -1,17 +1,22 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Header from './Components/Header'
+import Navigaion from './Components/Navigation'
 import Home from './Pages/Home'
 import NotFound from './Pages/Notfound'
+import Header from './Components/Header'
+import Button from './Components/Button'
+
 
 function App() {
   return (
     <div>
-      <Header /> {/* Navigation bar always visible */}
+      
+      <Header><Button label="Submit"/></Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Navigaion /> //Navigation bar always visible 
     </div>
   )
 }

@@ -1,0 +1,50 @@
+/* Make the bottom bar look sleek */
+.custom-bottom-nav {
+  height: 70px;
+  background: #1f1f1f !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav link styles */
+.nav-item-link {
+  color: #bbb !important;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-item-link:hover {
+  color: #00ffa5 !important;
+}
+
+.nav-label {
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* Center Floating Button */
+.center-btn {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 160, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-btn img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1f1f1f;
+}

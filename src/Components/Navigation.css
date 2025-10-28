@@ -1,50 +1,149 @@
-/* Make the bottom bar look sleek */
+/* ====== Base Navbar ====== */
 .custom-bottom-nav {
   height: 70px;
-  background: #1f1f1f !important;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+  background-color: #121212 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
 }
 
-/* Nav link styles */
-.nav-item-link {
-  color: #bbb !important;
-  font-size: 1.3rem;
+/* ====== Flex Layout Fix ====== */
+.nav-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  margin: 5px;
+}
+
+/* ====== Nav Links ====== */
+.nav-item-link {
+  color: #ccc !important;
+  font-size: 1.5rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-item-link:hover {
-  color: #00ffa5 !important;
+  color: #fff !important;
 }
 
 .nav-label {
-  font-size: 0.8rem;
-  margin-top: 2px;
+  font-size: 0.75rem;
+  color: #aaa;
 }
 
-/* Center Floating Button */
+/* ====== Floating Center Button ====== */
 .center-btn {
   position: absolute;
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background: #222;
-  height: 70px;
-  width: 70px;
+  background-color: #121212;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 255, 160, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 6px;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+  z-index: 5;
 }
 
 .center-btn img {
-  width: 85px;
-  height: 85px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #1f1f1f;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.center-btn:hover img {
+  transform: scale(1.08);
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.5);
+}
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 1000px) {
+  .custom-bottom-nav {
+    height: 65px;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 1.2rem;
+  }
+
+  .nav-item-link {
+    font-size: 1.3rem;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+  }
+
+  .center-btn {
+    top: -28px;
+  }
+
+  .center-btn img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-bottom-nav {
+    height: 60px;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 1rem;
+  }
+
+  .nav-item-link {
+    font-size: 1.1rem;
+  }
+
+  .nav-label {
+    font-size: 0.65rem;
+  }
+
+  .center-btn img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .center-btn {
+    top: -25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-item-link {
+    font-size: 1rem;
+  }
+
+  .nav-label {
+    font-size: 0.6rem;
+  }
+
+  .center-btn img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .center-btn {
+    top: -22px;
+  }
 }

@@ -1,10 +1,9 @@
 .custom-btn {
   background-color: transparent;
-  color: var(--btn-color, blue);
-  border: 2px solid var(--btn-border, blue);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .custom-btn:hover {
-  background-color: rgba(255, 255, 255, 0.856);
+  background-color: var(--hover-bg, rgba(255, 255, 255, 0.856));
 }

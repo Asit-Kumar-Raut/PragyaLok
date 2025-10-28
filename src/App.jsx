@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       
-      <Header><Button label="Submit"/></Header>
+      <Header><Button label="Submit" color="blue" bcol="blue" hoverBg="White"/></Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />

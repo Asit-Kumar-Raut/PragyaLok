@@ -1,0 +1,16 @@
+/* Carousel Section */
+.carousel-item {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(1); /* makes icons visible on light bg */
+}
+
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}

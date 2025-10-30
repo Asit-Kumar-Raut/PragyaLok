@@ -20,7 +20,8 @@ function App() {
         <Route path='/course' element={<Course />} />
         <Route path='/ai' element={<Ai />} />
       </Routes>
-      <Navigaion /> //Navigation bar always visible 
+      <Navigaion /> 
+      {/* Navigation bar always visible  */}
     </div>
   )
 }

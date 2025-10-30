@@ -1,0 +1,61 @@
+.course-card-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  width: 280px;
+}
+
+.course-card {
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid gray;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  border: 2px solid rgba(0, 0, 0, 0.705);
+}
+
+.course-popup {
+  position: absolute;
+  top: 0;
+  left: 105%;
+  width: 300px;
+  z-index: 100;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.course-popup h5 {
+  margin-bottom: 5px;
+}
+
+.course-popup .desc {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.course-popup button {
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.course-popup button:hover {
+  background-color: #0a58ca;
+}
+  
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .course-card-wrapper {
+    width: 100%;
+  }
+
+  .course-popup {
+    position: relative;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    display: none;
+  }
+}

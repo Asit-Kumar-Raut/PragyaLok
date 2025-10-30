@@ -111,12 +111,15 @@
 
   .img1,
   .img2 {
-    width: 80%;
+    width: 40vw;
     height: 45vh;
   }
 }
 
 @media screen and (max-width: 576px) {
+  .banner{
+    max-height: fit-content;
+  }
   .text h1 {
     font-size: 1.8rem;
   }
@@ -126,6 +129,7 @@
   }
    .img1,
   .img2 {
-   visibility: hidden;
+    width: 38vw;
+    height: 40vh;
   }
 }

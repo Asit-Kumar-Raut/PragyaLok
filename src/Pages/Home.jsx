@@ -2,6 +2,9 @@ import React from 'react'
 import CarouselTransition from '../Components/CarouselTransition'
 import Feature1 from '../Components/Feature1'
 import Banner1 from '../Components/Banner1'
+import Footer from '../Components/Footer'
+import Trending from '../Components/Trending'
+
 
 const Home = () => {
   return (
@@ -16,8 +19,10 @@ const Home = () => {
       />
       <Feature1 />
       <Banner1 />
+      <Trending />
       <h1>Home Page</h1>
       <p>Hello! This is your home page content 👋</p>
+      <Footer />
     </div>
   )
 }

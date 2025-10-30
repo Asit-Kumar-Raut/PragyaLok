@@ -16,7 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Navigaion /> //Navigation bar always visible 
+      <Navigaion /> 
+      {/* Navigation bar always visible  */}
     </div>
   )
 }

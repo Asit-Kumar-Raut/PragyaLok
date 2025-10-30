@@ -19,7 +19,7 @@ const course = () => {
       description: "AI/ML for automation & analysis",
       duration: "8 weeks",
       languages: ["english,hindi"],
-      image: "machinl.jpg"
+      image: "machinai.jpg"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const course = () => {
       description: "Build robust java apps with AI",
       duration: "8 weeks",
       languages: ["english,hindi"],
-      image: "javaai.jpg"
+      image: "java.jpg"
     },
     {
       id: 4,
@@ -49,23 +49,41 @@ const course = () => {
       image: "androidai.png"
     },
      {
-      id: 1,
+      id: 6,
       rating: "4.5",
       title: "prompt engineering for ai GecAI",
       description: "learn prompt writing for ai tools.",
       duration: "6 weeks",
       languages: ["English,hindi"],
-      image: "prompt.jpg"
+      image: "promai.jpg"
     },
      {
-      id: 1,
+      id: 7,
       rating: "4.5",
       title: "Generative AI",
       description: "build Ai-based apps & chatBot.",
       duration: "6 weeks",
       languages: ["English,hindi"],
       image: "genai.jpg"
-    }
+    },
+    {
+      id: 8,
+      rating: "4.5",
+      title: "UI/UX design with Ai",
+      description: "learn UI/UX design with AI tools.",
+      duration: "6 weeks",
+      languages: ["English,hindi"],
+      image: "uiux.jpg"
+    },
+      {
+      id: 9,
+      rating: "4.5",
+      title: "Graphic Design",
+      description: "Design visual contact with tools.",
+      duration: "6 weeks",
+      languages: ["English,hindi"],
+      image: "graphis.jpg"
+    },
   ];
 
   return (

@@ -1,5 +1,7 @@
 import "./CourseCard.css";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
+
 
 const CourseCard = ({ rating, title, description, duration, languages, image }) => {
   return (
@@ -38,8 +40,7 @@ const CourseCard = ({ rating, title, description, duration, languages, image }) 
         <a href="#" className="know-more-link">Know more </a>
       </div>
     </div>
-            <Navbar />
-
+        <Navbar />
     </>
   );
 };

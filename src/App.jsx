@@ -5,6 +5,8 @@ import Home from './Pages/Home'
 import NotFound from './Pages/Notfound'
 import Header from './Components/Header'
 import Button from './Components/Button'
+import Course from './Components/Course'
+import Ai from './Components/ai.jsx'
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
+        <Route path='/course' element={<Course />} />
+        <Route path='/ai' element={<Ai />} />
       </Routes>
       <Navigaion /> //Navigation bar always visible 
     </div>

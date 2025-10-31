@@ -26,9 +26,9 @@ function Navigation() {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/about" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/courses" className="nav-item-link text-center">
               📚
-              <div className="nav-label">NovelHub</div>
+              <div className="nav-label">Couses</div>
             </Nav.Link>
           </Nav.Item>
         </div>

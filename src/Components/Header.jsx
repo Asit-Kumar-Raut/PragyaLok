@@ -31,7 +31,10 @@ function Header() {
               aria-label="Search"
             />
             <Button variant="outline-success" className="mx-2">Search</Button>
-            <Button variant="outline-primary" className="mx-2" style={{ whiteSpace: 'nowrap' }}>Sign In</Button> 
+            <Link to={"/Login"}>
+             <Button variant="outline-primary" className="mx-2" style={{ whiteSpace: 'nowrap' }}>Sign In</Button> 
+            </Link>
+           
           </Form>
         </Navbar.Collapse>
       </Container>

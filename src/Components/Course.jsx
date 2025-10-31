@@ -1,4 +1,4 @@
-import CourseCard from "./CourseCard";
+import Coursecard from "./CourseCard";
 import "./course.css";
 
 const course = () => {
@@ -90,7 +90,7 @@ const course = () => {
     <>
     <div className="course-container">
       {courses.map(course => (
-        <CourseCard
+        <Coursecard
           key={course.id}
           rating={course.rating}
           title={course.title}

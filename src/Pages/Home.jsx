@@ -20,8 +20,6 @@ const Home = () => {
       <Feature1 />
       <Banner1 />
       <Trending />
-      <h1>Home Page</h1>
-      <p>Hello! This is your home page content 👋</p>
       <Footer />
     </div>
   )

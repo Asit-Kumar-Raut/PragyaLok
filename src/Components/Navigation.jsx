@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Navigation.css";
-
+import Course from "./Course.jsx";
 function Navigation() {
   return (
     <Navbar
@@ -26,31 +26,32 @@ function Navigation() {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/courses" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/Courses" className="nav-item-link text-center">
               📚
-              <div className="nav-label">Couses</div>
+              <div className="nav-label">Courses</div>
             </Nav.Link>
           </Nav.Item>
         </div>
 
         {/* Center Floating Button */}
         <div className="center-btn">
-          <Nav.Link as={Link} to="/downloads" className="nav-item-link text-center">
-            <img src="/logo.png" alt="Buzz Box" />
+          <Nav.Link as={Link} to="/ai" className="nav-item-link text-center">
+            <img src="/upanayana.jpg" alt="Buzz Box" />
           </Nav.Link>
+           <div className="nav-label">Upanayana</div>
         </div>
 
         {/* Right Side */}
         <div className="nav-right">
           <Nav.Item>
             <Nav.Link as={Link} to="/downloads" className="nav-item-link text-center">
-              ⬇️
-              <div className="nav-label">Downloads</div>
+              👥
+              <div className="nav-label">contact</div>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/me" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/profile" className="nav-item-link text-center">
               👤
               <div className="nav-label">Me</div>
             </Nav.Link>

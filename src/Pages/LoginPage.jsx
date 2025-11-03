@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./LoginPage.css";
-import videoBg from "/v1.mp4";
+import IsLogedin from "../Components/module3/IsLogedin";
 
 const LoginPage = ({ onLogin }) => {
   const [showForm, setShowForm] = useState(false);
@@ -29,21 +29,29 @@ const LoginPage = ({ onLogin }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      onLogin(formData);
-      alert("Login successful!");
-    }
-  };
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  if (validate()) {
+    // Store login info in localStorage
+    localStorage.setItem("userData", JSON.stringify(formData));
+
+    // Call parent handler (marks user as logged in)
+    onLogin();
+
+    document.getElementById("para").innerHTML = `Logged in Successfully! 🪂`;
+  }
+};
+
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
+    <div>
     <div className="login-container">
-      <video className="bg-video" src={videoBg} autoPlay muted loop></video>
+      <img className="bg-image" src="/loginbg.png" alt="bacground image"/>
 
       {showForm && (
         <div className="form-overlay">
@@ -97,10 +105,14 @@ const LoginPage = ({ onLogin }) => {
 
             <button type="submit" className="login-btn">
               Login
-            </button>
+            </button> <br /><br />
+            <p id="para" style={{color:"red"}}></p>
           </form>
+         
         </div>
       )}
+    </div>
+    <div style={{height:"5vh"}}></div>
     </div>
   );
 };

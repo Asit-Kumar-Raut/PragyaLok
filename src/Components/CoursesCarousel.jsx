@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row, Col } from "react-bootstrap";
-import CourseCard from "./CourseCard1";
+import CourseCard from "./module1/CourseCard1.jsx";
 import "./CoursesCarousel.css";
 
 const CoursesCarousel = ({ title, courses = [] }) => {

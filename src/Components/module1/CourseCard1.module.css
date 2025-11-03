@@ -24,7 +24,7 @@
   width: 300px;
   z-index: 100;
   border-radius: 10px;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
 }
 
 .course-popup h5 {

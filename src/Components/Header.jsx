@@ -10,7 +10,7 @@ function Header() {
   return (
    <Navbar expand="lg" bg="light" data-bs-theme="light" className="shadow-sm"   style={{ zIndex: 1000,boxShadow:"10px 0px black"}}>
       <Container fluid>
-        <Navbar.Brand href="/">  <img src="/logo.png" alt="logo" style={{height:50}} /></Navbar.Brand>
+        <Navbar.Brand href="/">  <img src="/mainlogo.png" alt="logo" style={{height:50}} /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

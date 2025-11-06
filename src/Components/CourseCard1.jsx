@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./CourseCard1.css";
 
 const CourseCard1 = ({
+  id,
   img,
   title,
   teacher,
@@ -33,7 +34,7 @@ const CourseCard1 = ({
         className="shadow-sm course-card h-100 text-decoration-none"
         style={{ cursor: "pointer" }}
         as={Link}
-        to={courseLink}
+        to={`/course/${id}`}
       >
         <Card.Img variant="top" src={img} alt={title} />
         <Card.Body>
@@ -49,7 +50,7 @@ const CourseCard1 = ({
           </div>
           <div className="price-section">
             <span className="fw-bold">₹{newPrice}</span>{" "}
-            <span className="text-muted">
+            <span className="text-muted text-decoration-line-through">
               ₹{oldPrice}
             </span>
           </div>
@@ -76,10 +77,10 @@ const CourseCard1 = ({
           <Button
             variant="primary"
             as={Link}
-            to={buyLink}
+            to={`/course/${id}`}
             className="w-100 mt-2"
           >
-            Add to cart
+            Know More
           </Button>
         </div>
       )}

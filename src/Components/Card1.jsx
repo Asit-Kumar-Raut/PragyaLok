@@ -2,9 +2,9 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "./Card1.css";
 
-function Card1({ img, title ,sub }) {
+function Card1({ img, title, sub, category }) {
   return (
-    <Link to="/about" className="card-link">
+    <Link to={`/?category=${category}`} className="card-link">
       <Card className="custom-card">
         {/* Image */}
         <div className="image-wrapper">
@@ -30,7 +30,7 @@ function Card1({ img, title ,sub }) {
             <div className="card-text-title">{title || "Course"}</div>
           </div>
 
-          <img src="/right-arrow.png" alt="arrow" className="arrow-icon" />
+      <img src="/right-arrow.png" alt="arrow" className="arrow-icon" />
         </div>
       </Card>
     </Link>

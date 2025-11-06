@@ -1,11 +1,8 @@
 import "./CourseCard.css";
-import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
-
-const CourseCard = ({ rating, title, description, duration, languages, image }) => {
+const CourseCard = ({ id, rating, title, description, duration, languages, image }) => {
   return (
-    <>
     <div className="course-card">
       <div className="course-header">
         <div className="image-container">
@@ -26,7 +23,6 @@ const CourseCard = ({ rating, title, description, duration, languages, image }) 
                 <span className="separator">•</span>
                 <span className="languages">
                   {languages.join(', ')}
-                  {languages.length === 1 && <></>}
                 </span>
               </>
             )}
@@ -37,11 +33,11 @@ const CourseCard = ({ rating, title, description, duration, languages, image }) 
       <div className="divider"></div>
       
       <div className="know-more-section">
-        <a href="#" className="know-more-link">Know more </a>
+        <Link to={`/course/${id}`} className="know-more-link">
+          Know more
+        </Link>
       </div>
     </div>
-        <Navbar />
-    </>
   );
 };
 

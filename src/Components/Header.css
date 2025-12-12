@@ -1,8 +1,117 @@
-.container{
-    width: 100%;
+/* Header.css */
+.custom-navbar {
+  z-index: 1000;
 }
 
-img{
-    height: 8.4em;
-    width: auto;
+.brand-logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Desktop Search */
+.search-form {
+  display: flex;
+  min-width: 300px;
+}
+
+.search-input {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.search-btn {
+  border-radius: 0 8px 8px 0 !important;
+  white-space: nowrap;
+}
+
+/* Mobile Search */
+.mobile-search-toggle {
+  border: none;
+  background: transparent !important;
+  color: #6c757d !important;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+}
+
+.mobile-search-bar {
+  width: 100%;
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mobile-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-search-input {
+  border-radius: 8px !important;
+  padding: 12px !important;
+}
+
+.mobile-search-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.search-action-btn {
+  flex: 1;
+  border-radius: 8px !important;
+  padding: 10px !important;
+}
+
+/* Auth Sections */
+.auth-section.desktop {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.auth-section.mobile {
+  text-align: center;
+}
+
+.welcome-text {
+  color: #007bff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .profile-btn,
+.auth-buttons .logout-btn {
+  white-space: nowrap;
+}
+
+/* Mobile specific styles */
+.mobile-auth {
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .auth-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .brand-logo img {
+    height: 40px;
+  }
+  
+  .mobile-search-bar {
+    padding: 12px;
+  }
+}
+
+/* Smooth transitions */
+.search-form,
+.mobile-search-form,
+.auth-buttons {
+  transition: all 0.3s ease;
 }

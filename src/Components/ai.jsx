@@ -124,7 +124,7 @@ const AI = () => {
     } else {
       return {
         type: 'text',
-        content: `land chusega,madarchod  click on the arrow mark which is just in the left side of you`
+        content: ` click on the arrow mark which is just in the left side of you`
       };
     }
   };

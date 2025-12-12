@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Navigation.css";
 import Course from "./Course.jsx";
-import ai from "./ai.jsx";
+
 function Navigation() {
   return (
     <Navbar
@@ -27,7 +27,7 @@ function Navigation() {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/Course" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/Courses" className="nav-item-link text-center">
               📚
               <div className="nav-label">Courses</div>
             </Nav.Link>
@@ -45,14 +45,14 @@ function Navigation() {
         {/* Right Side */}
         <div className="nav-right">
           <Nav.Item>
-            <Nav.Link as={Link} to="/downloads" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/Contact" className="nav-item-link text-center">
               👥
               <div className="nav-label">contact</div>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link as={Link} to="/me" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/profile" className="nav-item-link text-center">
               👤
               <div className="nav-label">Me</div>
             </Nav.Link>

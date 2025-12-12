@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
 import "./course.css";
 import { useSearchParams } from "react-router-dom";
-
+import Footer from "./Footer";
 const Course = () => {
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -224,7 +224,7 @@ const Course = () => {
     "ALL", "AI", "DESIGN", "PROGRAMMING", "WEB", "DATA", "CYBERSECURITY", "MOBILE"
   ];
 
-  // Read category from URL parameter
+  // ✅ Read category from URL parameter
   useEffect(() => {
     const urlCategory = searchParams.get('category');
     if (urlCategory) {
@@ -235,8 +235,8 @@ const Course = () => {
     }
   }, [searchParams]);
 
-  const filteredCourses = activeFilter === "ALL" 
-    ? allCourses 
+  const filteredCourses = activeFilter === "ALL"
+    ? allCourses
     : allCourses.filter(course => course.category === activeFilter);
 
   const handleFilterClick = (category) => {
@@ -247,7 +247,6 @@ const Course = () => {
       setSearchParams({ category: category.toLowerCase() });
     }
   };
-
   return (
     <>
       {/* Filter Buttons */}
@@ -270,7 +269,7 @@ const Course = () => {
         </div>
       </div>
 
-      {/* Courses Grid */}
+      {/* Courses Grid - Only one container */}
       <div className="course-container">
         {filteredCourses.length > 0 ? (
           filteredCourses.map(course => (
@@ -292,11 +291,12 @@ const Course = () => {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 };
 
-// Helper function to get button classes based on category
+// ✅ Helper function for colored buttons
 const getCategoryButtonClass = (category) => {
   switch (category) {
     case 'AI': return 'btn-secondary';

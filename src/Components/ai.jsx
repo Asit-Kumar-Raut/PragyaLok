@@ -124,7 +124,7 @@ const AI = () => {
     } else {
       return {
         type: 'text',
-        content: `I understand you're asking about "${userMessage}". I'm here to help you with:\n\n• Course information and details\n• Enrollment process\n• Fees and payment options\n• Certificate information\n• Course duration and schedule\n• Prerequisites and requirements\n\nPlease feel free to ask any specific questions about our courses!`
+        content: ` click on the arrow mark which is just in the left side of you`
       };
     }
   };

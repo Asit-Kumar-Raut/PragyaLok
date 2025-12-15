@@ -8,12 +8,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%; /* Ensure full height */
 }
 
 .course-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(0, 122, 255, 0.15);
-  border:2px solid rgba(0, 0, 0, 0.707);
+  border: 2px solid rgba(0, 0, 0, 0.707);
 }
 
 .course-header {
@@ -21,6 +22,7 @@
   gap: 20px;
   align-items: flex-start;
   padding: 25px;
+  flex: 1; /* Allow header to grow */
 }
 
 .image-container {
@@ -46,6 +48,7 @@
 
 .content-section {
   flex: 1;
+  min-height: 0; /* Prevent content from overflowing */
 }
 
 .rating-section {
@@ -67,6 +70,7 @@
   font-weight: 700;
   color: #1e293b;
   margin: 6px 0;
+  line-height: 1.3;
 }
 
 .course-description {
@@ -74,6 +78,10 @@
   color: #475569;
   line-height: 1.4;
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .course-details {
@@ -82,6 +90,7 @@
   gap: 8px;
   color: #64748b;
   font-size: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .duration {
@@ -90,6 +99,7 @@
   padding: 5px 10px;
   border-radius: 12px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .separator {
@@ -102,6 +112,7 @@
   border-radius: 12px;
   font-weight: 500;
   color: #475569;
+  white-space: nowrap;
 }
 
 .divider {
@@ -113,6 +124,7 @@
     rgba(203, 213, 224, 0) 100%
   );
   border: none;
+  margin: 0;
 }
 
 .know-more-section {
@@ -120,6 +132,7 @@
   background-color: #b0caf458;
   padding: 14px;
   border-top: 1px solid #dce9ff;
+  margin-top: auto; /* Push to bottom */
 }
 
 @keyframes knowmore {
@@ -146,16 +159,40 @@
   font-weight: 600;
   transition: color 0.3s ease;
   animation: knowmore 4s infinite;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .know-more-link:hover {
   color: #005ecb;
+  background: rgba(255, 255, 255, 1);
+  text-decoration: none;
+}
+
+/* Course container grid layout */
+.course-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.no-courses-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
 }
 
 @media (max-width: 480px) {
   .course-header {
     flex-direction: column;
     text-align: center;
+    padding: 20px;
   }
 
   .image-container {
@@ -164,5 +201,11 @@
 
   .course-details {
     justify-content: center;
+  }
+
+  .course-container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 20px;
   }
 }

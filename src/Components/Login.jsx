@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert, Spinner } from 'react-bootstrap';
 
-const LoginPage= ({ onLogin, onForgotPassword, onNewUser }) => {
+const Login = ({ onLogin, onForgotPassword, onNewUser }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -39,7 +39,7 @@ const LoginPage= ({ onLogin, onForgotPassword, onNewUser }) => {
         setError(data.error || 'Login failed');
       }
     } catch (error) {
-      setError('Network error. Please try again.',error);
+      setError('Network error. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -113,4 +113,4 @@ const LoginPage= ({ onLogin, onForgotPassword, onNewUser }) => {
   );
 };
 
-export default LoginPage;
+export default Login;

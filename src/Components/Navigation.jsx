@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Navigation.css";
 import Course from "./Course.jsx";
+
 function Navigation() {
   return (
     <Navbar
@@ -44,7 +45,7 @@ function Navigation() {
         {/* Right Side */}
         <div className="nav-right">
           <Nav.Item>
-            <Nav.Link as={Link} to="/downloads" className="nav-item-link text-center">
+            <Nav.Link as={Link} to="/Contact" className="nav-item-link text-center">
               👥
               <div className="nav-label">contact</div>
             </Nav.Link>

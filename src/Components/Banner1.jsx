@@ -1,6 +1,8 @@
 import React from "react";
 import "./Banner1.css";
 import { Link } from "react-router-dom";
+import Course from "./Course.jsx";
+
 
 const Banner1 = () => {
   return (
@@ -19,7 +21,7 @@ const Banner1 = () => {
           <p>🚀 <span>Advance</span> your career</p>
         </div>
 
-        <Link to="/about"><button className="learn-btn">Learn more</button></Link>
+        <Link to="Course/"><button className="learn-btn">Learn more</button></Link>
         <p className="price-text">Starting at ₹500/month</p>
       </div>
 

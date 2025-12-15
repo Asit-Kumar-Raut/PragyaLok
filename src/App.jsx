@@ -5,57 +5,105 @@ import Home from "./Pages/Home";
 import NotFound from "./Pages/Notfound";
 import Header from "./Components/Header";
 import Course from "./Components/Course";
-import Login from "./Pages/LoginPage";
+import AuthFlow from "./Components/AuthFlow";
 import Ai from "./Components/ai.jsx";
 import Profile from "./Pages/Profile.jsx";
+import CourseDetails from "./Components/CourseDetails";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [showAuth, setShowAuth] = useState(false);
 
   // ✅ Check localStorage on first load
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
-    if (storedUser) {
+    const token = localStorage.getItem("token");
+    
+    if (storedUser && token) {
       setIsLoggedIn(true);
+      setUserData(JSON.parse(storedUser));
     }
   }, []);
 
-  // ✅ When login succeeds, save data
+  // ✅ When login succeeds
   const handleLogin = (userData) => {
-    if (userData) {
-      localStorage.setItem("userData", JSON.stringify(userData));
-      setIsLoggedIn(true);
-    }
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("token", "user-token"); // You should use the actual token from backend
+    setIsLoggedIn(true);
+    setUserData(userData);
+    setShowAuth(false);
+    sessionStorage.setItem('justLoggedIn', 'true');
   };
 
   // ✅ Clear on logout
   const handleLogout = () => {
     localStorage.removeItem("userData");
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
+    setUserData(null);
+  };
+
+  // ✅ Show auth flow
+  const handleShowAuth = () => {
+    setShowAuth(true);
+  };
+
+  // ✅ Hide auth flow
+  const handleHideAuth = () => {
+    setShowAuth(false);
   };
 
   return (
-    <div>
-      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+    <div className="App">
+      <Header 
+        isLoggedIn={isLoggedIn} 
+        userData={userData} 
+        onLogout={handleLogout}
+        onShowAuth={handleShowAuth}
+      />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Course />} />
+      <main style={{ minHeight: 'calc(100vh - 120px)' }}>
+        {showAuth ? (
+          <AuthFlow onLogin={handleLogin} onCancel={handleHideAuth} />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/courses" element={<Course />} />
+            <Route path="/course/:id" element={<CourseDetails />} />
 
-        {/* Pass handleLogin to Login page */}
-        <Route path="/Login" element={<Login onLogin={handleLogin} />} />
+            {/* Auth route - redirect if already logged in */}
+            <Route 
+              path="/auth" 
+              element={
+                isLoggedIn ? 
+                  <Navigate to="/profile" replace /> : 
+                  <AuthFlow onLogin={handleLogin} />
+              } 
+            />
 
-        {/* Protect AI page */}
-        <Route
-          path="/ai"
-          element={isLoggedIn ? <Ai /> : <Navigate to="/Login" replace />}
-        />
+            {/* Protect AI page */}
+            <Route
+              path="/ai"
+              element={isLoggedIn ? <Ai /> : <Navigate to="/auth" replace />}
+            />
 
-        {/* Profile page */}
-        <Route path="/profile" element={<Profile />} />
+            {/* Profile page - protected */}
+            <Route
+              path="/profile"
+              element={
+                isLoggedIn ? 
+                  <Profile /> : 
+                  <Navigate to="/auth" replace />
+              }
+            />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+            {/* 404 Not Found */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        )}
+      </main>
 
       <Navigation />
     </div>

@@ -26,8 +26,8 @@ const pool = mysql.createPool({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'ardiliumplatform@gmail.com', // Your Gmail
-    pass: 'axzt dwsb qxaa jrzx' // Your Gmail App Password
+    user: 'ardiliumplatform@gmail.com', 
+    pass: 'axzt dwsb' 
   }
 });
 

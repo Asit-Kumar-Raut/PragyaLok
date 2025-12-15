@@ -16,7 +16,7 @@ function Profile() {
     name: "",
     email: "",
     phone: "",
-    bio: "Lifelong Learner in AI & ML",
+    bio: "Lifelong Learner in AI & ML 🚀",
     photo: "/avatar.jpg",
   });
 
@@ -28,32 +28,37 @@ function Profile() {
 
   const [editing, setEditing] = useState(false);
   const [showPhotoModal, setShowPhotoModal] = useState(false);
-
-  // ✅ NEW: Loading state for image upload
   const [loadingPhoto, setLoadingPhoto] = useState(false);
 
-  // Load user data from localStorage on mount
+  // ✅ Load user data from localStorage
   useEffect(() => {
-    const storedUser = localStorage.getItem("userData");
-    if (storedUser) {
-      setUser((prev) => ({ ...prev, ...JSON.parse(storedUser) }));
+    try {
+      const storedUser = localStorage.getItem("userData");
+      if (storedUser) {
+        setUser((prev) => ({ ...prev, ...JSON.parse(storedUser) }));
+      }
+    } catch (err) {
+      console.error("Error loading user data:", err);
     }
   }, []);
 
-  const handleEditToggle = () => setEditing(!editing);
-
+  // ✅ Save changes
   const handleChange = (e) => {
     const updated = { ...user, [e.target.name]: e.target.value };
     setUser(updated);
     localStorage.setItem("userData", JSON.stringify(updated));
   };
 
-  // ✅ Handle local photo upload with spinner
+  // ✅ Toggle edit mode
+  const handleEditToggle = () => {
+    setEditing(!editing);
+  };
+
+  // ✅ Handle image upload
   const handlePhotoUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       setLoadingPhoto(true);
-
       const reader = new FileReader();
       reader.onloadend = () => {
         const updated = { ...user, photo: reader.result };
@@ -66,7 +71,7 @@ function Profile() {
     }
   };
 
-  // ✅ Handle selecting predefined photo
+  // ✅ Handle preset photo selection
   const handlePresetPhoto = (photoURL) => {
     setLoadingPhoto(true);
     setTimeout(() => {
@@ -75,19 +80,19 @@ function Profile() {
       localStorage.setItem("userData", JSON.stringify(updated));
       setLoadingPhoto(false);
       setShowPhotoModal(false);
-    }, 600); // simulate smooth transition
+    }, 500);
   };
 
+
   return (
-    <Container className={styles.profileContainer}>
+    <Container className={`${styles.profileContainer} mt-5`}>
       {/* ================== Profile Header ================== */}
-      <Card className={styles.profileHeader}>
+      <Card className={`${styles.profileHeader} shadow-lg`}>
         <Row className="align-items-center">
           <Col md={3} className="text-center">
             <div className={styles.profilePicContainer}>
               <img src={user.photo} alt="User" className={styles.profilePic} />
 
-              {/* ✅ Spinner Overlay */}
               {loadingPhoto && (
                 <div className={styles.loaderOverlay}>
                   <div className={styles.loader}></div>
@@ -111,6 +116,7 @@ function Profile() {
                     name="name"
                     value={user.name}
                     onChange={handleChange}
+                    placeholder="Enter name"
                   />
                 </Form.Group>
                 <Form.Group className="mb-2">
@@ -118,6 +124,7 @@ function Profile() {
                     name="email"
                     value={user.email}
                     onChange={handleChange}
+                    placeholder="Enter email"
                   />
                 </Form.Group>
                 <Form.Group className="mb-2">
@@ -125,6 +132,7 @@ function Profile() {
                     name="phone"
                     value={user.phone}
                     onChange={handleChange}
+                    placeholder="Enter phone"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -134,6 +142,7 @@ function Profile() {
                     rows={2}
                     value={user.bio}
                     onChange={handleChange}
+                    placeholder="Write your bio"
                   />
                 </Form.Group>
               </Form>
@@ -146,19 +155,21 @@ function Profile() {
                 </p>
               </>
             )}
-            <Button
-              variant={editing ? "success" : "primary"}
-              className="mt-2"
-              onClick={handleEditToggle}
-            >
-              {editing ? "Save" : "Edit Profile"}
-            </Button>
+
+            <div className="mt-3 d-flex gap-2">
+              <Button
+                variant={editing ? "success" : "primary"}
+                onClick={handleEditToggle}
+              >
+                {editing ? "Save" : "Edit Profile"}
+              </Button>
+            </div>
           </Col>
         </Row>
       </Card>
 
       {/* ================== My Courses ================== */}
-      <Card className="mt-4 p-3">
+      <Card className="mt-4 p-3 shadow-sm">
         <h4 className={styles.sectionTitle}>📚 My Courses</h4>
         {courses.map((course, index) => (
           <div key={index} className={styles.courseItem}>
@@ -193,12 +204,13 @@ function Profile() {
           <div className={styles.presetContainer}>
             {["/avatar1.jpg", "/avatar2.jpg", "/avatar3.png", "/avatar4.jpg"].map(
               (img, i) => (
-                <img style={{height:"80px",marginLeft:"5px"}}
+                <img
                   key={i}
                   src={img}
                   alt={`avatar-${i}`}
                   className={styles.presetImg}
                   onClick={() => handlePresetPhoto(img)}
+                  style={{height:"40px",marginLeft:"10px"}}
                 />
               )
             )}

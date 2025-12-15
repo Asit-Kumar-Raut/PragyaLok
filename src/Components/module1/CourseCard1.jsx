@@ -48,7 +48,7 @@ const CourseCard1 = ({
       </div>
       <div className={`price-section ${styles["price-section"]}`}>
         <span className="fw-bold">₹{newPrice}</span>{" "}
-        <span className="text-muted">₹{oldPrice}</span>
+        <span className="text-muted" style={{textDecoration: "line-through"}}>₹{oldPrice}</span>
       </div>
     </Card.Body>
   </Card>

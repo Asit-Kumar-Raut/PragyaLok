@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./LoginPage.css";
-import IsLogedin from "../Components/module3/IsLogedin";
 
 const LoginPage = ({ onLogin }) => {
   const [showForm, setShowForm] = useState(false);
@@ -8,12 +7,12 @@ const LoginPage = ({ onLogin }) => {
     name: "",
     email: "",
     phone: "",
-    password: ""
+    password: "",
   });
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowForm(true), 800); // 0.8s video fade-in
+    const timer = setTimeout(() => setShowForm(true), 800); // 0.8s fade-in
     return () => clearTimeout(timer);
   }, []);
 
@@ -29,20 +28,15 @@ const LoginPage = ({ onLogin }) => {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = (e) => {
-  e.preventDefault();
-  if (validate()) {
-    // Store login info in localStorage
-    localStorage.setItem("userData", JSON.stringify(formData));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      // ✅ Pass formData to App.js
+      onLogin(formData);
 
-    // Call parent handler (marks user as logged in)
-    onLogin();
-
-    document.getElementById("para").innerHTML = `Logged in Successfully! 🪂`;
-  }
-};
-
-
+      document.getElementById("para").innerHTML = `Logged in Successfully! 🪂`;
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -50,69 +44,70 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div>
-    <div className="login-container">
-      <img className="bg-image" src="/loginbg.png" alt="bacground image"/>
+      <div className="login-container">
+        <img className="bg-image" src="/loginbg.png" alt="background image" />
 
-      {showForm && (
-        <div className="form-overlay">
-          <form className="login-form" onSubmit={handleSubmit}>
-            <h2>Welcome Back</h2>
-            <p className="subtitle">Login to continue your journey</p>
+        {showForm && (
+          <div className="form-overlay">
+            <form className="login-form" onSubmit={handleSubmit}>
+              <h2>Welcome Back</h2>
+              <p className="subtitle">Login to continue your journey</p>
 
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {errors.name && <span>{errors.name}</span>}
-            </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {errors.name && <span>{errors.name}</span>}
+              </div>
 
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && <span>{errors.email}</span>}
-            </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && <span>{errors.email}</span>}
+              </div>
 
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              {errors.phone && <span>{errors.phone}</span>}
-            </div>
+              <div className="form-group">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+                {errors.phone && <span>{errors.phone}</span>}
+              </div>
 
-            <div className="form-group">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              {errors.password && <span>{errors.password}</span>}
-            </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                {errors.password && <span>{errors.password}</span>}
+              </div>
 
-            <button type="submit" className="login-btn">
-              Login
-            </button> <br /><br />
-            <p id="para" style={{color:"red"}}></p>
-          </form>
-         
-        </div>
-      )}
-    </div>
-    <div style={{height:"5vh"}}></div>
+              <button type="submit" className="login-btn">
+                Login
+              </button>
+              <br />
+              <br />
+              <p id="para" style={{ color: "red" }}></p>
+            </form>
+          </div>
+        )}
+      </div>
+      <div style={{ height: "5vh" }}></div>
     </div>
   );
 };

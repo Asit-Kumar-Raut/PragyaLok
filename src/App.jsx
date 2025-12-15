@@ -22,8 +22,10 @@ function App() {
 
   // ✅ When login succeeds, save data
   const handleLogin = (userData) => {
-    localStorage.setItem("userData", JSON.stringify(userData));
-    setIsLoggedIn(true);
+    if (userData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+      setIsLoggedIn(true);
+    }
   };
 
   // ✅ Clear on logout
@@ -49,7 +51,7 @@ function App() {
           element={isLoggedIn ? <Ai /> : <Navigate to="/Login" replace />}
         />
 
-        {/* Profile will read from localStorage */}
+        {/* Profile page */}
         <Route path="/profile" element={<Profile />} />
 
         <Route path="*" element={<NotFound />} />

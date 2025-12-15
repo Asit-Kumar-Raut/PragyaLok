@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
-import "./course.css";
+import "./Course.css";
 import { useSearchParams } from "react-router-dom";
 import Footer from "./Footer";
 const Course = () => {
